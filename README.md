@@ -319,7 +319,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@pritiranjan-01](https://github.com/pritiranjan-01)
 
 ## 🙏 Acknowledgments
 
