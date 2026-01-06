@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 URL Shortener</h1>
+            <p>Transform long URLs into short, shareable links</p>
+        </div>
+
+        <div class="form-container">
+            <form method="POST" action="/shorten">
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        name="url" 
+                        id="urlInput" 
+                        placeholder="Enter URL here (e.g. https://example.com/very/long/url)"
+                        required
+                    >
+                    <button type="submit" id="shortenBtn">Shorten URL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

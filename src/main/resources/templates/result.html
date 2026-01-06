@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortened - URL Shortener</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 URL Shortener</h1>
+            <p>Your URL has been shortened successfully!</p>
+        </div>
+
+        <div class="result-container">
+            <h2>Your Short URL is Ready!</h2>
+            <div class="result-box">
+                <div class="result-item">
+                    <label>Short URL:</label>
+                    <div class="url-display">
+                        <input type="text" id="shortUrl" th:value="${shortUrl}" readonly>
+                        <button onclick="copyToClipboard()" class="copy-btn">📋 Copy</button>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <label>Original URL:</label>
+                    <div class="url-display">
+                        <a th:href="${originalUrl}" target="_blank" class="original-link" th:text="${originalUrl}"></a>
+                    </div>
+                </div>
+                <div class="result-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Short Code:</span>
+                        <span class="meta-value" th:text="${shortCode}"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Created:</span>
+                        <span class="meta-value" th:text="${createdAt}"></span>
+                    </div>
+                    <div class="meta-item" th:if="${expireAt}">
+                        <span class="meta-label">Expires:</span>
+                        <span class="meta-value" th:text="${expireAt}"></span>
+                    </div>
+                </div>
+            </div>
+            <a th:href="@{/}" class="new-url-btn">Shorten Another URL</a>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const input = document.getElementById('shortUrl');
+            const btn = event.target;
+            const originalText = btn.textContent;
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(input.value).then(() => {
+                    btn.textContent = '✓ Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }).catch(() => {
+                    fallbackCopy(input, btn, originalText);
+                });
+            } else {
+                fallbackCopy(input, btn, originalText);
+            }
+        }
+
+        function fallbackCopy(input, btn, originalText) {
+            input.select();
+            document.execCommand('copy');
+            btn.textContent = '✓ Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+
