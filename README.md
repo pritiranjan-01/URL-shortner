@@ -2,6 +2,11 @@
 
 A modern, web-based URL shortening service built with Spring Boot. Transform long URLs into short, shareable links with a clean and intuitive user interface.
 
+## Images
+<img width="1919" height="911" alt="Screenshot 2026-01-06 215457" src="https://github.com/user-attachments/assets/2958f16d-381a-44d5-b1a5-95ec2aa2f630" />
+<img width="1919" height="905" alt="Screenshot 2026-01-06 215530" src="https://github.com/user-attachments/assets/a7b1e842-ae4f-4c18-bdd1-64fb79e45824" />
+
+
 ## 📋 Table of Contents
 
 - [Features](#features)
